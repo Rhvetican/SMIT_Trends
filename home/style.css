@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #e6e6ef;
+    --accent-clr: #fadda7;
+    --secondary-text-clr: #b0b3c1;
+} 
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: Poppins;
+    line-height: 1.5rem;
+}
+body{
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-image: linear-gradient(rgba(0,0,0,0.30),rgba(0,0,0,0.30)),url(../Imgs/home.jpg);
+    background-size: cover;
+    background-position: center;
+    color:var(--text-clr);
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+#sidebar{
+    box-sizing: border-box;
+    height: 100vh;
+    width: 250px;
+    padding: 5px 1em;
+    background-color: rgba(0,0,0,0.60);
+    border-right: 1px solid var(--line-clr);
+  
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden; /*hides excess info during collpasing side bar*/
+    text-wrap: nowrap;
+
+    backdrop-filter: blur(10px); /* Applies the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For better browser support */
+}
+
+#sidebar.close{
+    padding: 5px;
+    width: 60px;
+  }
+#sidebar ul{
+    list-style: none;
+  }
+  #sidebar > ul > li:first-child{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    .logo{
+      font-weight: 600;
+    }
+}
+
+#sidebar ul li.active a{
+    color: var(--accent-clr);
+  
+    svg{
+      fill: var(--accent-clr);
+    }
+}
+#sidebar a, #sidebar .dropdown-btn, #sidebar .logo{
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration: none;
+    color: var(--text-clr);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  .dropdown-btn{
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+#sidebar svg{
+    flex-shrink: 0;
+    fill: var(--text-clr);
+  }
+  #sidebar a span, #sidebar .dropdown-btn span{
+    flex-grow: 1;
+  }
+  #sidebar a:hover, #sidebar .dropdown-btn:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+
+main{
+    padding: min(30px, 7%);
+}
+main p{
+    color: var(--secondary-text-clr);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.container{
+    border:1px solid var(--text-clr);
+    border-radius: 1em;
+    margin-bottom: 20px;
+    padding: min(3em, 15%);
+}
+
+.user-info {
+    background-color: rgba(0,0,0,0.30);
+    padding: 1.5em;
+    border-radius: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.user-info h2 {
+    color: var(--accent-clr);
+    margin-bottom: 0.5em;
+}
+
+.user-info p {
+    color: var(--secondary-text-clr);
+    font-size: 0.9em;
+}
+
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
+}
+
+#toggle-btn svg {
+    transition: transform 150ms ease; 
+}
+
+#toggle-btn.rotate svg {
+    transform: rotate(180deg);
+}
+
+
+#toggle-btn:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media(max-width: 800px){
+    body{
+      grid-template-columns: 1fr;
+    }
+    main{
+      padding: 2em 1em 60px 1em;
+    }
+    .container{
+      border: none;
+      padding: 0;
+    }
+    #sidebar{
+      height: 60px;
+      width: 100%;
+      border-right: none;
+      border-top: 1px solid var(--line-clr);
+      padding: 0;
+      position: fixed;
+      top: unset;
+      bottom: 0;
+  
+      > ul{
+        padding: 0;
+        display: grid;
+        grid-auto-columns: 60px;
+        grid-auto-flow: column;
+        align-items: center;
+        overflow-x: scroll;
+      }
+      ul li{
+        height: 100%;
+      }
+      ul a, ul .dropdown-btn{
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+      }
+  
+      ul li span, ul li:first-child, .dropdown-btn svg:last-child{
+        display: none;
+      }
+    }
+  }
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 2em;
+    padding: 1.5em;
+    background-color: rgba(0,0,0,0.30);
+    border-radius: 0.5em;
+}
+
+.profile-picture {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-clr);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-picture-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    color: var(--text-clr);
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.edit-picture-btn:hover {
+    background-color: rgba(0,0,0,0.9);
+}
+
+.profile-info h2 {
+    color: var(--accent-clr);
+    margin-bottom: 0.5em;
+}
+
+.profile-info p {
+    color: var(--secondary-text-clr);
+    margin: 0.2em 0;
+}
+
+.profile-section {
+    margin-bottom: 2em;
+    padding: 1.5em;
+    background-color: rgba(0,0,0,0.30);
+    border-radius: 0.5em;
+}
+
+.profile-section h3 {
+    color: var(--accent-clr);
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid var(--line-clr);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+}
+
+.info-item {
+    background-color: rgba(0,0,0,0.20);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.info-item label {
+    display: block;
+    color: var(--secondary-text-clr);
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.info-item p {
+    color: var(--text-clr);
+    margin: 0;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: rgba(0,0,0,0.30);
+    border-radius: 0.5em;
+}
+
+.edit-profile-btn,
+.change-password-btn {
+    padding: 0.8em 1.5em;
+    background-color: var(--accent-clr);
+    color: var(--base-clr);
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-btn:hover,
+.change-password-btn:hover {
+    background-color: #e6c88d;
+}
