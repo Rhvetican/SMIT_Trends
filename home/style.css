@@ -202,11 +202,11 @@ main p{
 .profile-header {
     display: flex;
     align-items: center;
-    gap: 2em;
-    margin-bottom: 2em;
-    padding: 1.5em;
-    background-color: rgba(0,0,0,0.30);
-    border-radius: 0.5em;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-bottom: 2rem;
 }
 
 .profile-picture {
@@ -219,9 +219,11 @@ main p{
 }
 
 .profile-picture img {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 3px solid #fff;
 }
 
 .edit-picture-btn {
@@ -242,52 +244,100 @@ main p{
     background-color: rgba(0,0,0,0.9);
 }
 
-.profile-info h2 {
-    color: var(--accent-clr);
-    margin-bottom: 0.5em;
+.profile-info h1 {
+    color: var(--text-clr);
+    margin: 0;
+    font-size: 2rem;
 }
 
-.profile-info p {
+.profile-info .email {
     color: var(--secondary-text-clr);
-    margin: 0.2em 0;
+    margin: 0.5rem 0;
+}
+
+.profile-info .role {
+    color: var(--accent-clr);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.profile-info .join-date {
+    color: #888;
+    font-size: 0.9rem;
 }
 
 .profile-section {
-    margin-bottom: 2em;
-    padding: 1.5em;
-    background-color: rgba(0,0,0,0.30);
-    border-radius: 0.5em;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
 }
 
-.profile-section h3 {
+.profile-section h2 {
     color: var(--accent-clr);
-    margin-bottom: 1em;
-    padding-bottom: 0.5em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--line-clr);
 }
 
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5em;
+.password-form {
+    max-width: 500px;
 }
 
-.info-item {
-    background-color: rgba(0,0,0,0.20);
-    padding: 1em;
-    border-radius: 0.5em;
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
-.info-item label {
+.form-group label {
     display: block;
-    color: var(--secondary-text-clr);
-    font-size: 0.9em;
-    margin-bottom: 0.5em;
+    color: #fff;
+    margin-bottom: 0.5rem;
 }
 
-.info-item p {
-    color: var(--text-clr);
-    margin: 0;
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #45a049;
+}
+
+.error-message {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4444;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 .profile-actions {
@@ -314,4 +364,139 @@ main p{
 .edit-profile-btn:hover,
 .change-password-btn:hover {
     background-color: #e6c88d;
+}
+
+/* Profile Page Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.profile-picture {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-picture-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.profile-info .email {
+    color: #666;
+    margin: 5px 0;
+}
+
+.profile-info .role {
+    color: #888;
+    font-size: 14px;
+}
+
+.profile-section {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-section h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.info-item:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.info-item label {
+    display: block;
+    color: var(--secondary-text-clr);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    color: var(--text-clr);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.edit-profile-btn,
+.change-password-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.edit-profile-btn {
+    background: #333;
+    color: white;
+}
+
+.change-password-btn {
+    background: #666;
+    color: white;
+}
+
+.edit-profile-btn:hover {
+    background: #444;
+}
+
+.change-password-btn:hover {
+    background: #777;
 }
